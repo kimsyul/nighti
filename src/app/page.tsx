@@ -9,7 +9,7 @@ export default function Home() {
         <h2 className="text-2xl text-center">조용한 밤, 나를 위한 작은 쉼표</h2>
       </div>
       <div className="flex flex-col gap-1">
-        <Button type="button" className="cursor-pointer text-xl font-semibold px-10 py-5" asChild>
+        <Button type="button" className="text-xl font-semibold px-10 py-5" asChild>
           <Link href={'/test/1'}>테스트 시작하기</Link>
         </Button>
         <Link href={'/list'} className="text-center underline cursor-pointer">
