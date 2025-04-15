@@ -44,13 +44,13 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: #cfc7d7;
+  --foreground: white;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: #a78bfa;
+  --primary: #05103b;
   --primary-foreground: #ffffff;
   --secondary: #cfc7d7;
   --secondary-foreground: #0c4a6e;

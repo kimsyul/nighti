@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body className={`${notoSerif.variable} antialiased bg-black text-white font-serif`}>
+      <body className={`${notoSerif.variable} antialiased font-serif`}>
         <ReactQueryClientProvider>
           <GlobalLayout>{children}</GlobalLayout>
         </ReactQueryClientProvider>
