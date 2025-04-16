@@ -22,10 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body className={`${notoSans.variable} antialiased`}>
-        <ReactQueryClientProvider>
-          <GlobalLayout>{children}</GlobalLayout>
-        </ReactQueryClientProvider>
+      <body className={`${notoSans.variable} antialiased bg-[url(/shooting-star.png)]`}>
+        <div className="absolute inset-0 bg-black/50">
+          <ReactQueryClientProvider>
+            <GlobalLayout>{children}</GlobalLayout>
+          </ReactQueryClientProvider>
+        </div>
       </body>
     </html>
   );
