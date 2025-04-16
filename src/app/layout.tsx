@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Noto_Serif_KR } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
 import ReactQueryClientProvider from '../../config/ReactQueryClientProvider';
 import GlobalLayout from '@/components/layout/GlobalLayout';
 
-const notoSerif = Noto_Serif_KR({
-  variable: '--font-noto-serif',
+const notoSans = Noto_Sans_KR({
+  variable: '--font-noto-sans',
   subsets: ['latin'],
   weight: ['400', '700'],
 });
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="kr">
-      <body className={`${notoSerif.variable} antialiased font-serif`}>
+      <body className={`${notoSans.variable} antialiased`}>
         <ReactQueryClientProvider>
           <GlobalLayout>{children}</GlobalLayout>
         </ReactQueryClientProvider>
