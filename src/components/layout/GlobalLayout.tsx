@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 
 export default function GlobalLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative max-w-lg h-screen m-auto  bg-[url(/shooting-star.png)] bg-center bg-cover flex flex-col px-6">
+    <div className="relative max-w-lg h-screen m-auto bg-[url(/shooting-star.png)]  shadow-2xl shadow-blue-950 bg-center bg-cover flex flex-col px-6">
       {/* <div className="absolute inset-0 bg-black/50 flex flex-col px-6"> */}
       <header className="h-14 flex items-center text-2xl font-bold">
         <Link href={'/'}>서울 야경</Link>
