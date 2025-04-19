@@ -1,6 +1,6 @@
 'use client';
 
-import { questions } from '@/lib/questions';
+import { questions } from '@/lib/test';
 import TestButton from '@/components/ TestButton';
 import { useRouter } from 'next/navigation';
 import React, { use } from 'react';
