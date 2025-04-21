@@ -2,7 +2,7 @@ export default function TestButton({ text, onClickButton }: { text: string; onCl
   return (
     <div
       onClick={onClickButton}
-      className="w-full bg-blue-950/50 hover:bg-blue-200/60 p-3 text-center rounded-2xl cursor-pointer">
+      className="w-full  bg-primary/50 hover:bg-secondary/60 border p-3 text-center rounded-2xl cursor-pointer">
       {text}
     </div>
   );

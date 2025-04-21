@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Mercury from '@/images/수성.png';
+import SpotCard from '@/components/SpotCard';
+import ContentBox from '@/components/ContentBox';
 
 const mockData = {
   id: 'mercury',
@@ -16,18 +18,25 @@ const mockData = {
 export default function Page() {
   return (
     <div className="flex flex-col gap-10">
-      {/* <h1 className="text-4xl font-bold">{mockData.type}</h1> */}
       <div className="text-3xl font-bold">{mockData.title}</div>
-      <Image src={Mercury} width={100} height={100} alt={mockData.id} className="w-sm m-auto" />
-      <section>
+      {/* <Image src={Mercury} width={100} height={100} alt={mockData.id} className="w-sm m-auto" /> */}
+      <ContentBox>
         <div className="text-2xl font-bold">당신의 특징은?</div>
-        {mockData.features.map((feature) => (
-          <div className="text-lg">- {feature}</div>
-        ))}
-      </section>
-      <section>
+        <div>
+          {mockData.features.map((feature, idx) => (
+            <div key={idx} className="text-md">
+              - {feature}
+            </div>
+          ))}
+        </div>
+      </ContentBox>
+      <ContentBox>
         <div className="text-2xl font-bold">당신에게 추천하는 야경 명소</div>
-      </section>
+        <div className="flex flex-col gap-10">
+          <SpotCard />
+          <SpotCard />
+        </div>
+      </ContentBox>
       <div className="sticky">
         <Button>결과 공유하기</Button>
       </div>
