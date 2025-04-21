@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-10">
       <div className="text-3xl font-bold">{mockData.title}</div>
-      {/* <Image src={Mercury} width={100} height={100} alt={mockData.id} className="w-sm m-auto" /> */}
+      <Image src={Mercury} width={100} height={100} alt={mockData.id} className="w-sm m-auto" />
       <ContentBox>
         <div className="text-2xl font-bold">당신의 특징은?</div>
         <div>
@@ -33,6 +33,7 @@ export default function Page() {
       <ContentBox>
         <div className="text-2xl font-bold">당신에게 추천하는 야경 명소</div>
         <div className="flex flex-col gap-10">
+          <SpotCard />
           <SpotCard />
           <SpotCard />
         </div>

@@ -17,9 +17,6 @@ export default function Home() {
             스킵하기
           </Link>
         </div>
-        <Link href={'/list'} className="text-center">
-          서울야경
-        </Link>
       </div>
     </div>
   );
