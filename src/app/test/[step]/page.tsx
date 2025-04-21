@@ -25,7 +25,10 @@ export default function Page({ params }: { params: Promise<{ step: string }> }) 
   return (
     <div className="flex flex-col h-full justify-between">
       <section className="flex flex-col items-center gap-7">
-        <div className="text-2xl">Q. {step}</div>
+        <div className="text-center">
+          <div className="text-2xl">Q.</div>
+          <div className="text-2xl">{step} / 12</div>
+        </div>
         <div className="font-bold text-3xl text-center">{question}</div>
       </section>
       <section className="flex flex-col gap-3 mb-5 font-bold text-lg">
