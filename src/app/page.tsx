@@ -10,7 +10,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-1">
-          <Button type="button" className="text-xl w-full bg-primary" size="lg" asChild>
+          <Button type="button" variant="accent" className="text-xl w-full font-bold" size="lg" asChild>
             <Link href={'/test/1'}>테스트 시작</Link>
           </Button>
           <Link href={'/list'} className="text-center underline cursor-pointer">

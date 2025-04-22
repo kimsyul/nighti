@@ -33,7 +33,9 @@ export default function Page({ params }: { params: Promise<{ step: string }> }) 
       </section>
       <section className="flex flex-col gap-3 mb-5 font-bold text-lg">
         {options.map((option) => (
-          <TestButton key={option.value} text={option.label} onClickButton={onClickButton} />
+          <TestButton key={option.value} onClickButton={onClickButton}>
+            {option.label}
+          </TestButton>
         ))}
       </section>
     </div>

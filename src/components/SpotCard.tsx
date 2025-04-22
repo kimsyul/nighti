@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Badge } from './ui/badge';
+import Link from 'next/link';
 
 export default function SpotCard() {
   return (
@@ -12,13 +13,15 @@ export default function SpotCard() {
           <Badge variant="outline">남산</Badge>
         </div>
       </div>
-      <Image
-        src={'/shooting-star.png'}
-        width={1}
-        height={1}
-        alt="남산 타워"
-        className="w-full rounded-4xl hover:shadow-lg hover:shadow-amber-200 cursor-pointer"
-      />
+      <Link href={`/spot/1`} className="w-full">
+        <Image
+          src={'/shooting-star.png'}
+          width={1}
+          height={1}
+          alt="남산 타워"
+          className="w-full rounded-4xl hover:shadow-lg hover:shadow-amber-200 cursor-pointer"
+        />
+      </Link>
     </div>
   );
 }

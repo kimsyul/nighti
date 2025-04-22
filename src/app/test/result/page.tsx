@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Mercury from '@/images/수성.png';
 import SpotCard from '@/components/SpotCard';
 import ContentBox from '@/components/ContentBox';
+import { ChevronDown, IterationCcw, ScanHeart, Share } from 'lucide-react';
+import TestButton from '@/components/TestButton';
 
 const mockData = {
   id: 'mercury',
@@ -17,7 +19,7 @@ const mockData = {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-5">
       <div className="text-3xl font-bold">{mockData.title}</div>
       <Image src={Mercury} width={100} height={100} alt={mockData.id} className="w-sm m-auto" />
       <ContentBox>
@@ -38,8 +40,13 @@ export default function Page() {
           <SpotCard />
         </div>
       </ContentBox>
-      <div className="sticky">
-        <Button>결과 공유하기</Button>
+      <div className="flex items-center gap-2 sticky">
+        <Button size="lg" className="font-bold flex-1" variant="accent">
+          <ScanHeart /> 다른 명소 구경
+        </Button>
+        <Button size="lg" variant="accent" className="font-bold ">
+          <Share /> 공유
+        </Button>
       </div>
     </div>
   );

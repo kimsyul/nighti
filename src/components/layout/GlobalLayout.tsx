@@ -9,13 +9,7 @@ export default function GlobalLayout({ children }: { children: ReactNode }) {
       <header className="flex items-center text-2xl font-bold py-4">
         <Link href={'/'}>서울 야경</Link>
       </header>
-      {/* <div className="flex w-full items-center space-x-2">
-        <Input type="search" placeholder="Search" />
-        <Button type="submit" className="cursor-pointer hover:bg-accent hover:text-black">
-          검색
-        </Button>
-      </div> */}
-      <main className="flex-1 mt-6">{children}</main>
+      <main className="flex-1">{children}</main>
       <footer className="text-center text-white text-sm my-3">Copyright © 2025 - All right reserved by KSY</footer>
     </div>
   );
