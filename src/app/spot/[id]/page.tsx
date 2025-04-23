@@ -32,7 +32,7 @@ export default function Page() {
         <span>{mockData.addr}</span>
       </section>
       <Image src={'/shooting-star.png'} alt="남산 타워" width={1} height={1} className="w-full rounded-4xl" />
-      <section className="flex flex-col gap-4 pb-10 border-b-2 border-dashed border-accent">
+      <section className="flex flex-col gap-4 pb-10 border-b-2 border-dashed border-secondary">
         <div className="flex flex-col">
           <span className="text-accent font-bold text-lg">운영 시간</span>
           <span>{mockData.operating_time}</span>
