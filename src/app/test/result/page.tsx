@@ -3,8 +3,7 @@ import Image from 'next/image';
 import Mercury from '@/images/수성.png';
 import SpotCard from '@/components/SpotCard';
 import ContentBox from '@/components/ContentBox';
-import { ChevronDown, IterationCcw, ScanHeart, Share } from 'lucide-react';
-import TestButton from '@/components/TestButton';
+import { RotateCcw, ScanHeart, Share } from 'lucide-react';
 import Link from 'next/link';
 
 const mockData = {
@@ -35,20 +34,23 @@ export default function Page() {
       </ContentBox>
       <ContentBox>
         <div className="text-2xl font-bold">당신에게 추천하는 야경 명소</div>
-        <div className="flex flex-col gap-10">
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-        </div>
+        <div className="flex flex-col gap-10"></div>
       </ContentBox>
       <div className="flex items-center gap-2 sticky">
         <Button size="lg" variant="accent" className="font-bold flex-1" asChild>
           <Link href={'/spot'}>
-            <ScanHeart /> 다른 명소 구경
+            <ScanHeart /> 전체 명소 보러가기
+          </Link>
+        </Button>
+        <Button size="lg" variant="accent" className="font-bold" asChild>
+          <Link href={'/'}>
+            <RotateCcw aria-hidden="true" />
+            <span className="sr-only">다시하기</span>
           </Link>
         </Button>
         <Button size="lg" variant="accent" className="font-bold ">
-          <Share /> 공유
+          <Share aria-hidden="true" />
+          <span className="sr-only">공유하기</span>
         </Button>
       </div>
     </div>
