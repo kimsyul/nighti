@@ -5,6 +5,7 @@ import SpotCard from '@/components/SpotCard';
 import ContentBox from '@/components/ContentBox';
 import { ChevronDown, IterationCcw, ScanHeart, Share } from 'lucide-react';
 import TestButton from '@/components/TestButton';
+import Link from 'next/link';
 
 const mockData = {
   id: 'mercury',
@@ -41,8 +42,10 @@ export default function Page() {
         </div>
       </ContentBox>
       <div className="flex items-center gap-2 sticky">
-        <Button size="lg" className="font-bold flex-1" variant="accent">
-          <ScanHeart /> 다른 명소 구경
+        <Button size="lg" variant="accent" className="font-bold flex-1" asChild>
+          <Link href={'/spot'}>
+            <ScanHeart /> 다른 명소 구경
+          </Link>
         </Button>
         <Button size="lg" variant="accent" className="font-bold ">
           <Share /> 공유
