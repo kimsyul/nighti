@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
-import ReactQueryClientProvider from '../../config/ReactQueryClientProvider';
+import ReactQueryClientProvider from '../config/ReactQueryClientProvider';
 
 const notoSans = Noto_Sans_KR({
   variable: '--font-noto-sans',

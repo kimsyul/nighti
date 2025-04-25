@@ -1,4 +1,4 @@
-import SpotCard from '@/components/SpotCard';
+import SpotList from '@/components/SpotList';
 
 export default async function Page() {
   return (
@@ -7,9 +7,7 @@ export default async function Page() {
         <h1 className="text-center text-2xl text-accent font-bold">서울 야경 명소</h1>
       </section>
       <section>
-        {allSpots.map((spot: SpotCardInfo) => (
-          <SpotCard key={spot.num} {...spot} />
-        ))}
+        <SpotList />
       </section>
     </div>
   );
