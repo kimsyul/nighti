@@ -6,7 +6,7 @@ export default function SpotCard({ num, title, operatingTime, freeYn, addr }: Sp
   return (
     <Link
       href={`/spot/${num}`}
-      className="flex flex-col items-center gap-2 transition-all duration-300 hover:scale-[1.01] cursor-pointer border-1 border-dashed border-secondary rounded-2xl w-3/4 m-auto py-6">
+      className="flex flex-col items-center gap-2 bg-primary/50 transition-all duration-300 hover:scale-[1.02] cursor-pointer border-1  border-secondary rounded-2xl w-3/4 m-auto py-6">
       <Image src={'/shooting-star.png'} width={1} height={1} alt={`${title} 이미지`} className="w-6/7 rounded-2xl" />
       <div className="w-6/7 flex flex-col gap-1.5">
         <div className="flex justify-between">
