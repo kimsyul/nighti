@@ -27,13 +27,15 @@ export default function Page({ params }: { params: Promise<{ step: string }> }) 
       <section className="flex flex-col items-center gap-7">
         <div className="text-center">
           <div className="text-2xl">Q.</div>
-          <div className="text-2xl">{step} / 12</div>
+          <div className="text-2xl">
+            {step} / {questions.length}
+          </div>
         </div>
         <div className="font-bold text-3xl text-center">{question}</div>
       </section>
       <section className="flex flex-col gap-3 mb-5 font-bold text-lg">
-        {options.map((option) => (
-          <TestButton key={option.value} onClickButton={onClickButton}>
+        {options.map((option, idx) => (
+          <TestButton key={idx} onClickButton={onClickButton}>
             {option.label}
           </TestButton>
         ))}
