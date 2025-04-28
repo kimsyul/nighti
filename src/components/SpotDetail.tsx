@@ -12,7 +12,9 @@ export function SpotDetail({ spot }: { spot: Spot }) {
         <h1 className="text-accent font-bold text-4xl">{spot.title}</h1>
         <span>{spot.addr}</span>
       </section>
-      <Image src={'/shooting-star.png'} alt="남산 타워" width={1} height={1} className="w-full rounded-4xl" />
+      <div className="relative w-full h-64 rounded-4xl overflow-hidden">
+        {spot.img ? <Image src={spot.img} alt={`${spot.title} 이미지`} fill className="object-cover" /> : <div></div>}
+      </div>
       <section className="flex flex-col gap-4 pb-10 border-b-2 border-dashed border-secondary">
         <div className="flex flex-col">
           <span className="text-accent font-bold text-lg">운영 시간</span>
@@ -73,7 +75,6 @@ export function SpotDetail({ spot }: { spot: Spot }) {
           </div>
         </div>
       </section>
-
       <div className="flex flex-col pb-10">
         <span className="text-accent font-bold text-lg">소개</span>
         <p className="leading-relaxed text-justify text-sm">{spot.contents}</p>
