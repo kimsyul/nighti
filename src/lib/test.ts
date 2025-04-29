@@ -26,7 +26,7 @@ export const questions: Question[] = [
       { label: '🧍 혼자만의 시간을 보낼거에요', value: 'alone' },
       { label: '👫 친구와 함께 시간을 보낼거에요', value: 'together' },
       { label: '👩‍❤️‍👨 연인과 데이트 할거에요', value: 'together' },
-      { label: '🧑‍🧑‍🧒 가족과 좋은 시간을 보낼거에요', value: 'together' },
+      { label: '🧑‍🧑‍🧒 가족과 좋은 시간을 보낼거에요', value: 'family' },
       { label: '🐾 반려동물과 시간을 보낼거에요', value: 'pet' },
     ],
   },
