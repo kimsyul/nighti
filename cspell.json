@@ -27,6 +27,7 @@
     "sisul",
     "supabase",
     "tailwindcss",
-    "tanstack"
+    "tanstack",
+    "zustand"
   ]
 }

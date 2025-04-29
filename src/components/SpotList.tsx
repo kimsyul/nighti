@@ -1,7 +1,7 @@
 'use client';
 
 import SpotCard from './SpotCard';
-import { getAllSpots } from '@/actions/spotAction';
+import { getSpotList } from '@/actions/spotAction';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button } from './ui/button';
 import { ChevronDown } from 'lucide-react';
@@ -12,7 +12,7 @@ export default function SpotList({ search = '' }: { search?: string }) {
   const { data, isFetching, isFetchingNextPage, fetchNextPage } = useInfiniteQuery({
     initialPageParam: 1,
     queryKey: ['spots', search],
-    queryFn: ({ pageParam }) => getAllSpots({ search, page: pageParam, pageSize: PAGE_SIZE }),
+    queryFn: ({ pageParam }) => getSpotList({ search, page: pageParam, pageSize: PAGE_SIZE }),
     getNextPageParam: (lastPage) => (lastPage.page ? lastPage.page + 1 : undefined),
   });
 
