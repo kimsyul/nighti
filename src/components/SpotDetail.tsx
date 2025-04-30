@@ -10,7 +10,7 @@ export function SpotDetail({ spot }: { spot: Spot }) {
     <div className="flex flex-col gap-4">
       <section>
         <h1 className="text-accent font-bold text-4xl">{spot.title}</h1>
-        <span>{spot.addr}</span>
+        <span>{spot.address}</span>
       </section>
       <div className="relative w-full h-64 rounded-4xl overflow-hidden">
         {spot.img ? <Image src={spot.img} alt={`${spot.title} 이미지`} fill className="object-cover" /> : <div></div>}
@@ -22,7 +22,7 @@ export function SpotDetail({ spot }: { spot: Spot }) {
         </div>
         <div className="flex flex-col">
           <span className="text-accent font-bold text-lg">이용 요금</span>
-          <span>{spot.entrFee ?? spot.freeYn}</span>
+          <span>{spot.entranceFee ?? spot.isFree}</span>
         </div>
         <div className="flex flex-col">
           <span className="text-accent font-bold text-lg">주차 정보</span>
@@ -36,10 +36,10 @@ export function SpotDetail({ spot }: { spot: Spot }) {
             </a>
           </div>
         )}
-        {spot.telNo && (
+        {spot.tel && (
           <div className="flex flex-col">
             <span className="text-accent font-bold text-lg">문의</span>
-            <span>{spot.telNo}</span>
+            <span>{spot.tel}</span>
           </div>
         )}
         <div className="flex flex-col">
@@ -59,13 +59,13 @@ export function SpotDetail({ spot }: { spot: Spot }) {
             )}
             <div className="flex gap-2 mt-2 justify-center">
               <Button variant="outline" className="w-40 font-bold">
-                <a href={`https://map.naver.com/p/search/${spot.addr}`} target="_blank" rel="noopener noreferrer">
+                <a href={`https://map.naver.com/p/search/${spot.address}`} target="_blank" rel="noopener noreferrer">
                   네이버 지도
                 </a>
               </Button>
               <Button variant="outline" className="w-40 font-bold">
                 <a
-                  href={`https://map.kakao.com/?map_type=TYPE_MAP&q=${spot.addr}`}
+                  href={`https://map.kakao.com/?map_type=TYPE_MAP&q=${spot.address}`}
                   target="_blank"
                   rel="noopener noreferrer">
                   카카오 맵

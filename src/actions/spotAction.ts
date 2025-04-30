@@ -40,7 +40,53 @@ export async function getSpotList({
   return { data, page };
 }
 
-export async function getAllSpots(): Promise<SpotType[] | null> {
+export async function getFilteredSpot(selectedValues: string[]): Promise<SpotType[]> {
+  const cookieStore = await cookies();
+  const supabase = createClient(cookieStore);
+
+  let query = supabase.from('spots').select('*');
+
+  if (selectedValues.includes('negative')) {
+    query = query.contains('tags', ['negative']);
+  }
+
+  const togetherFilter = ['alone', 'family', 'pet'].filter((tag) => selectedValues.includes(tag));
+  if (togetherFilter.length > 0) {
+    query = query.contains('tags', togetherFilter);
+  }
+
+  const placeFilter = ['water', 'high', 'park', 'building', 'tradition'].filter((tag) => selectedValues.includes(tag));
+  if (placeFilter.length > 0) {
+    query = query.contains('tags', placeFilter);
+  }
+
+  if (selectedValues.includes('car')) {
+    query = query.not('parkingInfo', 'is', null);
+  }
+
+  if (selectedValues.includes('walk')) {
+    query = query.or('bus.not.is.null, subway.not.is.null');
+  }
+
+  if (selectedValues.includes('money')) {
+    query = query.eq('isFree', '유료');
+  }
+
+  if (selectedValues.includes('free')) {
+    query = query.eq('isFree', '무료');
+  }
+
+  const { data, error } = await query;
+
+  if (error) {
+    handleError(error);
+    return [];
+  }
+
+  return data;
+}
+
+export async function getAllSpots(): Promise<SpotType[]> {
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
 
@@ -48,6 +94,7 @@ export async function getAllSpots(): Promise<SpotType[] | null> {
 
   if (error) {
     handleError(error);
+    return [];
   }
 
   return data;

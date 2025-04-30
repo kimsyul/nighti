@@ -24,12 +24,11 @@ export default function SpotList({ search = '' }: { search?: string }) {
     <div className="flex flex-col gap-8">
       {isFetching && <div>로딩 중...</div>}
       <div className="flex flex-col gap-5">
-        {data?.pages
-          ?.map((page) => page.data)
-          ?.flat()
-          .map((spot) => (
-            <SpotCard key={spot.num} {...spot} />
-          ))}
+        {data &&
+          data.pages
+            ?.map((page) => page.data)
+            ?.flat()
+            .map((spot) => <SpotCard key={spot.num} {...spot} />)}
       </div>
       <Button
         variant={'accent'}

@@ -1,13 +1,14 @@
-import { SpotType, getAllSpots } from '@/actions/spotAction';
+import { getFilteredSpot } from '@/actions/spotAction';
 
 export async function calculateRecommendations(selectedValues: string[]) {
-  const spots = await getAllSpots();
+  let spots = await getFilteredSpot(selectedValues);
 
   if (!spots) return [];
 
   const sortedWithScore = spots
-    .map((spot: SpotType) => {
-      const matchCount = spot.tags.filter((tag: string) => selectedValues.includes(tag)).length;
+    .map((spot) => {
+      let matchCount = (spot.tags ?? []).filter((tag: string) => selectedValues.includes(tag)).length;
+
       return { ...spot, matchCount };
     })
     .filter((spot) => spot.matchCount > 0)

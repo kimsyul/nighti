@@ -11,15 +11,14 @@ export type Database = {
     Tables: {
       spots: {
         Row: {
-          addr: string
+          address: string
           bus: string | null
           contents: string
-          entrFee: string | null
-          freeYn: string
+          entranceFee: string | null
           img: string | null
-          keywords: string[] | null
-          la: string
-          lo: string
+          isFree: string
+          latitude: string
+          longitude: string
           modDate: string
           num: number
           operatingTime: string
@@ -27,20 +26,20 @@ export type Database = {
           regDate: string
           subjectCd: string
           subway: string | null
-          telNo: string | null
+          tags: string[]
+          tel: string | null
           title: string
           url: string | null
         }
         Insert: {
-          addr: string
+          address: string
           bus?: string | null
           contents: string
-          entrFee?: string | null
-          freeYn: string
+          entranceFee?: string | null
           img?: string | null
-          keywords?: string[] | null
-          la: string
-          lo: string
+          isFree: string
+          latitude: string
+          longitude: string
           modDate: string
           num?: number
           operatingTime: string
@@ -48,20 +47,20 @@ export type Database = {
           regDate: string
           subjectCd: string
           subway?: string | null
-          telNo?: string | null
+          tags: string[]
+          tel?: string | null
           title: string
           url?: string | null
         }
         Update: {
-          addr?: string
+          address?: string
           bus?: string | null
           contents?: string
-          entrFee?: string | null
-          freeYn?: string
+          entranceFee?: string | null
           img?: string | null
-          keywords?: string[] | null
-          la?: string
-          lo?: string
+          isFree?: string
+          latitude?: string
+          longitude?: string
           modDate?: string
           num?: number
           operatingTime?: string
@@ -69,7 +68,8 @@ export type Database = {
           regDate?: string
           subjectCd?: string
           subway?: string | null
-          telNo?: string | null
+          tags?: string[]
+          tel?: string | null
           title?: string
           url?: string | null
         }

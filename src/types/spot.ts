@@ -53,4 +53,4 @@ import { Database } from '../../types_db';
 
 export type SeoulNightSpot = Database['public']['Tables']['spots']['Row'];
 
-export type SpotCardInfo = Pick<SeoulNightSpot, 'num' | 'title' | 'operatingTime' | 'freeYn' | 'addr' | 'img'>;
+export type SpotCardInfo = Pick<SeoulNightSpot, 'num' | 'title' | 'operatingTime' | 'isFree' | 'address' | 'img'>;

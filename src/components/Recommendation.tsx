@@ -1,25 +1,35 @@
+'use client';
+
 import { useRecommendStore } from '@/app/store/useRecommendStore';
-import { calculateRecommendations } from '@/utils/calculateRecommendations';
-import { useEffect, useState } from 'react';
-// TODO
+import { useEffect } from 'react';
+import SpotCard from './SpotCard';
+import { useQuery } from '@tanstack/react-query';
+import { getFilteredSpot } from '@/actions/spotAction';
 
 export default function Recommendation() {
   const { selectedValues, setRecommendations, recommendedPlaces } = useRecommendStore();
-  const [loading, setLoading] = useState(true);
+
+  const { data, isPending } = useQuery({
+    queryKey: ['spots'],
+    queryFn: () => getFilteredSpot(selectedValues),
+  });
+  console.log(selectedValues);
+  console.log(data);
 
   useEffect(() => {
-    async function load() {
-      setLoading(true);
-      const spots = await calculateRecommendations(selectedValues);
-      setRecommendations(spots);
-      setLoading(false);
+    if (data) {
+      setRecommendations(data);
     }
+  }, [data]);
 
-    load();
-  }, []);
+  if (!recommendedPlaces || recommendedPlaces.length === 0) return <div>추천할 명소가 없어요..</div>;
 
-  if (loading) return <div>추천 명소를 고르고 있어요!</div>;
-  if (!recommendedPlaces) return <div>추천할 명소가 없어요..</div>;
-
-  return <div className="flex flex-col"></div>;
+  return (
+    <div className="flex flex-col gap-8">
+      {isPending && <div>추천 명소를 고르고 있어요!</div>}
+      {recommendedPlaces.map((spot) => (
+        <SpotCard key={spot.num} {...spot} />
+      ))}
+    </div>
+  );
 }
