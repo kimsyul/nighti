@@ -1,6 +1,6 @@
 'use client';
 
-import { useRecommendStore } from '@/app/store/useRecommendStore';
+import { useRecommendStore } from '@/store/useRecommendStore';
 import { ArrowBigLeft } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 

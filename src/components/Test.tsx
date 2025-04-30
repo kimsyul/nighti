@@ -3,7 +3,7 @@
 import { questions } from '@/lib/test';
 import TestButton from '@/components/TestButton';
 import { useRouter } from 'next/navigation';
-import { useRecommendStore } from '@/app/store/useRecommendStore';
+import { useRecommendStore } from '@/store/useRecommendStore';
 
 export default function Test({ step }: { step: number }) {
   const router = useRouter();

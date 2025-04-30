@@ -5,11 +5,14 @@ import { getSpotList } from '@/actions/spotAction';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button } from './ui/button';
 import { ChevronDown } from 'lucide-react';
+import { useSearchStore } from '@/store/useSearchStore';
 
 const PAGE_SIZE = 10;
 
-export default function SpotList({ search = '' }: { search?: string }) {
-  const { data, isFetching, isFetchingNextPage, fetchNextPage } = useInfiniteQuery({
+export default function SpotList() {
+  const { search } = useSearchStore();
+
+  const { data, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage } = useInfiniteQuery({
     initialPageParam: 1,
     queryKey: ['spots', search],
     queryFn: ({ pageParam }) => getSpotList({ search, page: pageParam, pageSize: PAGE_SIZE }),
@@ -30,20 +33,22 @@ export default function SpotList({ search = '' }: { search?: string }) {
             ?.flat()
             .map((spot) => <SpotCard key={spot.num} {...spot} />)}
       </div>
-      <Button
-        variant={'accent'}
-        onClick={handleLoadMore}
-        disabled={isFetchingNextPage}
-        size={'lg'}
-        className="w-full font-bold">
-        {isFetchingNextPage ? (
-          '불러오는 중...'
-        ) : (
-          <>
-            <ChevronDown /> 더 보기
-          </>
-        )}
-      </Button>
+      {hasNextPage && (
+        <Button
+          variant={'accent'}
+          onClick={handleLoadMore}
+          disabled={isFetchingNextPage}
+          size={'lg'}
+          className="w-full font-bold">
+          {isFetchingNextPage ? (
+            '불러오는 중...'
+          ) : (
+            <>
+              <ChevronDown /> 더 보기
+            </>
+          )}
+        </Button>
+      )}
     </div>
   );
 }

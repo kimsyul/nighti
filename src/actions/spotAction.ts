@@ -23,21 +23,24 @@ export async function getSpotList({
 }): Promise<{
   data: SpotType[] | null;
   page: number;
+  hasNextPage: boolean;
 }> {
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
 
-  const { data, error } = await supabase
+  const { data, count, error } = await supabase
     .from('spots')
     .select('*')
     .like('title', `%${search}%`)
     .range((page - 1) * pageSize, page * pageSize - 1);
 
+  const hasNextPage = (count as number) > page * pageSize;
+
   if (error) {
     handleError(error);
   }
 
-  return { data, page };
+  return { data, page, hasNextPage };
 }
 
 export async function getFilteredSpot(selectedValues: string[]): Promise<SpotType[]> {
@@ -100,7 +103,11 @@ export async function getAllSpots(): Promise<SpotType[]> {
   return data;
 }
 
-export async function getSpot(num: string): Promise<SpotType> {
+export async function getSpot(num: number): Promise<SpotType> {
+  if (!num) {
+    throw new Error('id가 없습니다.');
+  }
+
   const cookieStore = await cookies();
   const supabase = createClient(cookieStore);
 
