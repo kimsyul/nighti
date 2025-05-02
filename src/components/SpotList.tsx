@@ -25,9 +25,10 @@ export default function SpotList() {
 
   return (
     <div className="flex flex-col gap-8">
-      {isFetching && <div>로딩 중...</div>}
+      {isFetching && <div className="font-bold text-center text-xl">명소 불러오는 중... 🌙</div>}
       <div className="flex flex-col gap-5">
-        {data &&
+        {!isFetching &&
+          data &&
           data.pages
             ?.map((page) => page.data)
             ?.flat()

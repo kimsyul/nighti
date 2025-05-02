@@ -5,9 +5,7 @@ import { useEffect } from 'react';
 import SpotCard from './SpotCard';
 import { useQuery } from '@tanstack/react-query';
 import { getFilteredSpot } from '@/actions/spotAction';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { ScanHeart } from 'lucide-react';
+import LoadingOrEmpty from './LoadingOrEmpty';
 
 export default function Recommendation() {
   const { selectedValues, setRecommendations, recommendedPlaces } = useRecommendStore();
@@ -30,8 +28,8 @@ export default function Recommendation() {
 
   return (
     <div className="flex flex-col gap-4">
-      {isPending && <div>추천 명소를 고르고 있어요!</div>}
-      {!isPending && recommendedPlaces.length === 0 && <div>추천할 명소가 없어요..ㅠㅠ</div>}
+      {isPending && <LoadingOrEmpty>추천 명소를 고르고 있어요!</LoadingOrEmpty>}
+      {!isPending && recommendedPlaces.length === 0 && <LoadingOrEmpty>추천할 명소가 없어요..ㅠㅠ</LoadingOrEmpty>}
       {topData && topData.map((spot) => <SpotCard key={spot.num} {...spot} />)}
     </div>
   );

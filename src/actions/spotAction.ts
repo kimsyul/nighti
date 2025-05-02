@@ -71,10 +71,6 @@ export async function getFilteredSpot(selectedValues: string[]): Promise<SpotTyp
     query = query.or('bus.not.is.null, subway.not.is.null');
   }
 
-  if (selectedValues.includes('money')) {
-    query = query.eq('isFree', '유료');
-  }
-
   if (selectedValues.includes('free')) {
     query = query.eq('isFree', '무료');
   }

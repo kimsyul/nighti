@@ -7,7 +7,7 @@ export default function SpotCard({ num, title, operatingTime, isFree, address, i
   return (
     <Link
       href={`/spot/${num}`}
-      className="flex flex-col items-center gap-4 bg-primary/50 transition-all duration-300 hover:shadow-md hover:shadow-secondary cursor-pointer border-1  border-secondary rounded-2xl w-3/4 m-auto py-6">
+      className="flex flex-col items-center gap-4 bg-primary/50 transition-all duration-300 hover:shadow-md hover:shadow-secondary active:shadow-md active:shadow-secondary cursor-pointer border-1 border-secondary rounded-2xl w-full m-auto py-6">
       <section className="relative w-6/7 h-50">
         {img ? (
           <Image src={img} alt={`${title} 이미지`} fill className="object-cover rounded-2xl" />

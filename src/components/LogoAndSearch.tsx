@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useSearchStore } from '@/store/useSearchStore';
+import Logo from './Logo';
 
 export default function LogoAndSearch() {
   const router = useRouter();
@@ -14,10 +15,7 @@ export default function LogoAndSearch() {
   const searchParams = useSearchParams();
   const q = searchParams.get('q') as string;
 
-  const pathName = usePathname();
   const { search, setSearch, isOpen, setIsOpen } = useSearchStore();
-
-  const goHome = pathName.startsWith('/spot') ? '/spot' : '/';
 
   useEffect(() => {
     setSearch(q || '');
@@ -37,9 +35,7 @@ export default function LogoAndSearch() {
   return (
     <header>
       <div className="flex items-center justify-between text-2xl font-bold px-6 py-2">
-        <Link href={goHome} onClick={() => setIsOpen(false)}>
-          서울 야경
-        </Link>
+        <Logo />
         {!isOpen ? (
           <Search className="cursor-pointer text-accent" onClick={() => setIsOpen(true)} />
         ) : (
