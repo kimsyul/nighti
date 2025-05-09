@@ -7,7 +7,7 @@ export async function calculateRecommendations(selectedValues: string[]) {
 
   const sortedWithScore = spots
     .map((spot) => {
-      let matchCount = (spot.tags ?? []).filter((tag: string) => selectedValues.includes(tag)).length;
+      const matchCount = (spot.tags ?? []).filter((tag: string) => selectedValues.includes(tag)).length;
 
       return { ...spot, matchCount };
     })
