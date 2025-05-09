@@ -6,6 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { Button } from './ui/button';
 import { ChevronDown } from 'lucide-react';
 import { useSearchStore } from '@/store/useSearchStore';
+import { SpotCardInfo } from '@/types/spot';
 
 const PAGE_SIZE = 10;
 
@@ -32,7 +33,7 @@ export default function SpotList() {
           data.pages
             ?.map((page) => page.data)
             ?.flat()
-            .map((spot) => <SpotCard key={spot.num} {...spot} />)}
+            .map((spot, index) => <SpotCard key={index} {...(spot as SpotCardInfo)} />)}
       </div>
       {hasNextPage && (
         <Button
