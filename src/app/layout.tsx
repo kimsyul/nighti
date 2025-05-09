@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
-import ReactQueryClientProvider from '../../config/ReactQueryClientProvider';
-import GlobalLayout from '@/components/layout/GlobalLayout';
+import ReactQueryClientProvider from '../config/ReactQueryClientProvider';
 
 const notoSans = Noto_Sans_KR({
   variable: '--font-noto-sans',
@@ -21,11 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="kr">
-      <body className={` ${notoSans.variable} antialiased bg-black text-white`}>
-        <ReactQueryClientProvider>
-          <GlobalLayout>{children}</GlobalLayout>
-        </ReactQueryClientProvider>
+    <html lang="ko">
+      <body className={`${notoSans.variable} antialiased bg-slate-900`}>
+        <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
       </body>
     </html>
   );
