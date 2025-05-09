@@ -1,7 +1,13 @@
 import { getSpot } from '@/actions/spotAction';
 import { SpotDetail } from '@/components/SpotDetail';
 
-export default async function Page({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function Page({ params }: PageProps) {
   const id = Number(params.id);
   const spot = await getSpot(id);
 
