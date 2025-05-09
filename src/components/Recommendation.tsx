@@ -20,17 +20,16 @@ export default function Recommendation() {
 
   useEffect(() => {
     if (data) {
-      setRecommendations(data);
+      const topData = data && data.sort(() => Math.random() - 0.5).slice(0, 3);
+      setRecommendations(topData);
     }
   }, [data]);
-
-  const topData = data && data.sort(() => Math.random() - 0.5).slice(0, 3);
 
   return (
     <div className="flex flex-col gap-4">
       {isPending && <LoadingOrEmpty>추천 명소를 고르고 있어요!</LoadingOrEmpty>}
       {!isPending && recommendedPlaces.length === 0 && <LoadingOrEmpty>추천할 명소가 없어요..ㅠㅠ</LoadingOrEmpty>}
-      {topData && topData.map((spot) => <SpotCard key={spot.num} {...spot} />)}
+      {recommendedPlaces && recommendedPlaces.map((spot) => <SpotCard key={spot.num} {...spot} />)}
     </div>
   );
 }

@@ -11,19 +11,21 @@ import Logo from './Logo';
 
 export default function LogoAndSearch() {
   const router = useRouter();
+  const [searchWord, setSearchWord] = useState('');
 
   const searchParams = useSearchParams();
   const q = searchParams.get('q') as string;
 
-  const { search, setSearch, isOpen, setIsOpen } = useSearchStore();
+  const { setSearch, isOpen, setIsOpen } = useSearchStore();
 
   useEffect(() => {
     setSearch(q || '');
   }, [q]);
 
   const onSubmit = () => {
-    if (!search || q === search) return;
-    router.push(`/spot?q=${search}`);
+    if (!searchWord || q === searchWord) return;
+    setSearch(searchWord);
+    router.push(`/spot?q=${searchWord}`);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -48,8 +50,8 @@ export default function LogoAndSearch() {
             type="search"
             placeholder="야경 명소를 검색하세요."
             className="bg-white text-primary"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            value={searchWord}
+            onChange={(e) => setSearchWord(e.target.value)}
             onKeyDown={onKeyDown}
           />
           <Button type="submit" variant="accent" className="font-bold" onClick={onSubmit}>
