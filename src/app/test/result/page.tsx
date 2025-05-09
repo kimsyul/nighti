@@ -1,6 +1,5 @@
 import Recommendation from '@/components/Recommendation';
 import ResultPageButton from '@/components/ResultPageButton';
-import Result from '@/components/ResultPageButton';
 
 export default function Page() {
   return (

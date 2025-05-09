@@ -1,7 +1,7 @@
 import { getFilteredSpot } from '@/actions/spotAction';
 
 export async function calculateRecommendations(selectedValues: string[]) {
-  let spots = await getFilteredSpot(selectedValues);
+  const spots = await getFilteredSpot(selectedValues);
 
   if (!spots) return [];
 

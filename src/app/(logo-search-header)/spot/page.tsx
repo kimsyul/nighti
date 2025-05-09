@@ -1,7 +1,5 @@
 import SpotList from '@/components/SpotList';
 import RecommendButton from '@/components/spot-list/RecommendButton';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 
 export default async function Page() {
   return (

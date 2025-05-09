@@ -1,8 +1,7 @@
 'use client';
 
 import { Search, X } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
